@@ -1,15 +1,185 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>˚₊‧꒰ა 1 ໒꒱ ‧₊˚</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Natasha Cano</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        /* --- Reset y Estilos Generales --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Usamos la misma fuente que tu index */
+            color: #222;
+            overflow: hidden; /* Mantiene la división de pantalla perfecta */
+        }
 
+        /* --- Contenedor Principal (Split-Screen) --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr; /* Por defecto, una columna para móvil */
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Responsive: división 35/65 en pantallas más grandes (PC, Tablet) */
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: 35% 65%; /* 35% para info, 65% para foto */
+            }
+        }
+
+        /* --- Panel Izquierdo (Info de Contacto) --- */
+        .left-panel {
+            background-color: #ffffff; /* FONDO BLANCO SÓLIDO */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centrado vertical */
+            align-items: flex-start; /* Alineado a la izquierda */
+            padding: 10% 15%; /* Espaciado interno generoso y responsivo */
+            height: 100%;
+            box-sizing: border-box; /* Importante para el padding */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #541313f0; /* El verde que tenías en el body original */
+        }
+
+        .decorative-text {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* --- Detalles de Contacto Estilizados --- */
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Espacio entre los ítems */
+            width: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center; /* Iconos y texto alineados */
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            color: #541313f0; /* Verde para los iconos */
+            font-size: 1.8rem;
+        }
+
+        .contact-text strong {
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 3px;
+        }
+
+        /* Estilo de los links de contacto */
+        .contact-link {
+            text-decoration: none;
+            color: #444;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #541313f0;
+        }
+
+        /* --- Botón Volver al inicio (inferior) --- */
+        .back-btn {
+            display: flex;
+            align-items: center;
+            margin-top: auto; /* Empuja el botón al fondo del panel */
+            padding-top: 40px;
+            text-decoration: none;
+            color: #888;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #181818;
+        }
+
+        /* --- Panel Derecho (Galería de Fondo) --- */
+        .right-panel {
+            /* REEMPLAZA ESTO por la ruta de tu imagen que combine */
+            background-image: url('img/obras_fondo_contacto.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+            position: relative; /* Para la capa opcional */
+        }
+
+        /* Opcional: Capa suave para que la imagen no distraiga demasiado */
+        .right-panel::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.03); 
+        }
+
+    </style>
+</head>
 <body>
 
-<h1>ִ ࣪ ˖ ࣪ ᨰꫀᥣᥴ᥆ꩇꫀ ! ᰔ ִ ׄ</h1>
+    <div class="grid-container">
+        
+        <div class="left-panel">
+            <h1>Contacto</h1>
+      
 
-<a href="pagina2.html">Ir a la segunda página</a>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span class="material-symbols-outlined contact-icon">person</span>
+                    <div class="contact-text">
+                        <strong>Nombre:</strong>
+                        Natasha Renee Cano Moya
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <span class="material-symbols-outlined contact-icon">mail</span>
+                    <div class="contact-text">
+                        <strong>Correo:</strong>
+                        <a href="mailto: ncanom@uft.edu" class="contact-link"> ncanom@uft.edu</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <span class="material-symbols-outlined contact-icon">camera_enhance</span>
+                    <div class="contact-text">
+                        <strong>Instagram:</strong>
+                        <a href="https://instagram.com/tu_usuario" target="_blank" class="contact-link">@lagrimitadibuja</a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-btn">
+                <span class="material-symbols-outlined" style="font-size: 1.2rem; margin-right: 5px;">arrow_back</span>
+                Volver al inicio
+            </a>
+        </div>
+
+        <div class="right-panel">
+            </div>
+
+    </div>
 
 </body>
 </html>
