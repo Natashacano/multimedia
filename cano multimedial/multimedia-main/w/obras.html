@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras - Natasha Cano</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 40px;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Contenedor de la galería */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+            gap: 20px; /* Espacio entre imágenes */
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .obra-item {
+            background-color: #eee;
+            border: 1px solid #ddd;
+            height: 300px; /* Altura de los espacios */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .obra-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta la imagen al cuadro sin deformarse */
+        }
+
+     
+        
+
+        /* Botón para volver */
+        .btn-volver {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            color: #777;
+            font-weight: bold;
+            border: 1px solid #777;
+            padding: 10px 20px;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+
+    <h1>Obras</h1>
+
+    <div class="galeria">
+        <div class="obra-item">
+            <img src="img/alien.jpeg" alt="Obra 1">
+        </div>
+
+        <div class="obra-item">
+            <img src="img/boca.jpeg" alt="Obra 2">
+        </div>
+
+        <div class="obra-item">
+            <img src="img/circuito.jpeg" alt="Obra 3">
+        </div>
+
+        <div class="obra-item">
+            <img src="img/ojo.jpeg" alt="Obra 4">
+        </div>
+    </div>
+
+    <br>
+    <a href="index.html" class="btn-volver">← Volver al Menú</a>
+
+</body>
+</html>
