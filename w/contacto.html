@@ -12,36 +12,45 @@
             padding: 0;
             height: 100%;
             width: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Usamos la misma fuente que tu index */
-            color: #222;
-            overflow: hidden; /* Mantiene la división de pantalla perfecta */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #dad7d7;
+            overflow: hidden;
         }
 
-        /* --- Contenedor Principal (Split-Screen) --- */
+        /* --- Contenedor Principal --- */
         .grid-container {
             display: grid;
-            grid-template-columns: 1fr; /* Por defecto, una columna para móvil */
+            /* Forzamos las dos columnas para que no se apilen una arriba de otra */
+            grid-template-columns: 35% 65%; 
             height: 100vh;
             width: 100vw;
+            background-image: url('img/spam\ ojo.jpeg'); 
+            background-size: 65%; /* Cambié a cover para que llene mejor el espacio */
+            background-position: right;
+            background-repeat: no-repeat;
+            background-color: #191818;
         }
 
-        /* Responsive: división 35/65 en pantallas más grandes (PC, Tablet) */
-        @media (min-width: 768px) {
+        /* Ajuste para móviles: si la pantalla es muy chica, el cuadro negro crece */
+        @media (max-width: 768px) {
             .grid-container {
-                grid-template-columns: 35% 65%; /* 35% para info, 65% para foto */
+                grid-template-columns: 100%;
             }
         }
 
         /* --- Panel Izquierdo (Info de Contacto) --- */
         .left-panel {
-            background-color: #ffffff; /* FONDO BLANCO SÓLIDO */
+            background-color: #191818;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centrado vertical */
-            align-items: flex-start; /* Alineado a la izquierda */
-            padding: 10% 15%; /* Espaciado interno generoso y responsivo */
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 10% 10%; 
             height: 100%;
-            box-sizing: border-box; /* Importante para el padding */
+            box-sizing: border-box;
+            /* Esto asegura que el panel esté por encima del fondo y sea clickeable */
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
@@ -49,89 +58,71 @@
             text-transform: uppercase;
             letter-spacing: 0.1rem;
             margin-top: 0;
-            margin-bottom: 10px;
-            color: #541313f0; /* El verde que tenías en el body original */
+            margin-bottom: 30px;
+            color:#dad7d7;
         }
 
-        .decorative-text {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        /* --- Detalles de Contacto Estilizados --- */
         .contact-details {
             display: flex;
             flex-direction: column;
-            gap: 25px; /* Espacio entre los ítems */
+            gap: 25px;
             width: 100%;
         }
 
         .contact-item {
             display: flex;
-            align-items: center; /* Iconos y texto alineados */
+            align-items: center;
             gap: 15px;
             font-size: 1.1rem;
         }
 
         .contact-icon {
-            color: #541313f0; /* Verde para los iconos */
+            color: #972a2af0;
             font-size: 1.8rem;
         }
 
         .contact-text strong {
-            display: block;
+            display: block; 
             text-transform: uppercase;
             font-size: 0.8rem;
-            color: #888;
+            color: #b1aaaa;
             margin-bottom: 3px;
         }
 
-        /* Estilo de los links de contacto */
         .contact-link {
             text-decoration: none;
-            color: #444;
+            color: #dad7d7;
             font-weight: bold;
             transition: color 0.3s ease;
+            position: relative;
+            z-index: 10; /* Máxima prioridad para el click */
         }
 
         .contact-link:hover {
-            color: #541313f0;
+            color: #861111f0;
         }
 
-        /* --- Botón Volver al inicio (inferior) --- */
         .back-btn {
             display: flex;
             align-items: center;
-            margin-top: auto; /* Empuja el botón al fondo del panel */
-            padding-top: 40px;
+            margin-top: auto; 
+            padding-bottom: 40px;
             text-decoration: none;
             color: #888;
             font-size: 0.9rem;
             transition: color 0.3s ease;
+            position: relative;
+            z-index: 10;
         }
 
         .back-btn:hover {
-            color: #181818;
+            color: #ffffff;
         }
 
-        /* --- Panel Derecho (Galería de Fondo) --- */
+        /* --- Panel Derecho (Transparente para ver la foto) --- */
         .right-panel {
-            /* REEMPLAZA ESTO por la ruta de tu imagen que combine */
-            background-image: url('img/obras_fondo_contacto.jpeg'); 
-            background-size: cover;
-            background-position: center;
-            height: 100%;
-            width: 100%;
-            position: relative; /* Para la capa opcional */
-        }
-
-        /* Opcional: Capa suave para que la imagen no distraiga demasiado */
-        .right-panel::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.03); 
+            background: transparent;
+            /* Eliminé el ::after porque estaba bloqueando los clicks */
         }
 
     </style>
@@ -142,14 +133,13 @@
         
         <div class="left-panel">
             <h1>Contacto</h1>
-      
 
             <div class="contact-details">
                 <div class="contact-item">
                     <span class="material-symbols-outlined contact-icon">person</span>
                     <div class="contact-text">
                         <strong>Nombre:</strong>
-                        Natasha Renee Cano Moya
+                        <a href="biografia.html" class="contact-link">Natasha Renee Cano Moya</a>
                     </div>
                 </div>
 
@@ -157,7 +147,7 @@
                     <span class="material-symbols-outlined contact-icon">mail</span>
                     <div class="contact-text">
                         <strong>Correo:</strong>
-                        <a href="mailto: ncanom@uft.edu" class="contact-link"> ncanom@uft.edu</a>
+                        <a href="mailto:ncanom@uft.edu" class="contact-link">ncanom@uft.edu</a>
                     </div>
                 </div>
 
@@ -165,7 +155,7 @@
                     <span class="material-symbols-outlined contact-icon">camera_enhance</span>
                     <div class="contact-text">
                         <strong>Instagram:</strong>
-                        <a href="https://instagram.com/tu_usuario" target="_blank" class="contact-link">@lagrimitadibuja</a>
+                        <a href="https://instagram.com/lagrimitadibuja" target="_blank" class="contact-link">lagrimitadibuja</a>
                     </div>
                 </div>
             </div>
@@ -176,8 +166,7 @@
             </a>
         </div>
 
-        <div class="right-panel">
-            </div>
+        <div class="right-panel"></div>
 
     </div>
 

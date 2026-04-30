@@ -5,76 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natasha Cano - Portafolio</title>
     <style>
-        /* Estilos generales */
+        /* Estética de Galería Contemporánea */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #3cb450;
+            width: 100%;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #000; /* Fondo base antes de cargar imagen */
+            color: #ffffff;
             overflow: hidden;
         }
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;  
-            width: 100%; 
+
+        /* Imagen de fondo sin "ensuciar" */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-            /* Reemplaza el link de abajo por el link de tu imagen */
-            background-image: url('img/todo.jpeg'); 
+            background-image: url('img/collage\ de\ pinturas.jpg'); 
             background-size: cover;
             background-position: center;
-            opacity: 0.9; /* Aquí controlas la transparencia (0.1 a 1) */
-            z-index: -1;
+            z-index: 1;
         }
 
-        /* Contenedor principal */
-        .content {
-            text-align: center;
-            background: rgba(135, 135, 135, 0.7); /* Fondo blanco suave para el texto */
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        /* Capa de brillo sutil para asegurar legibilidad si la foto es clara */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* Oscurece la foto solo un 20% */
+            z-index: 2;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #222;
-        }
-
-        
-        /* Estilo de los links */
-        nav {
+        /* Contenedor de Interfaz (Encima de la imagen) */
+        .interface {
+            position: relative;
+            z-index: 3;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: space-between; /* Empuja el contenido a los extremos */
+            padding: 60px; /* Margen de respiro desde los bordes */
+            box-sizing: border-box;
+        }
+
+        /* Nombre de la artista (como en Zaria Forman o Caroline) */
+        h1 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 5px; /* Mucho espacio para elegancia */
+            margin: 0;
+            display: inline-block;
+        }
+
+        /* Menú de navegación (Limpio y flotante) */
+        nav {
+            display: flex;
+            gap: 40px; /* Espacio horizontal entre links */
+            justify-content: flex-end; /* Alineado a la derecha */
         }
 
         .link {
             text-decoration: none;
-            color: #444;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: color 0.3s ease;
+            color: #ffffff;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 5px;
         }
 
-        
+        .link:hover {
+            opacity: 0.6;
+            border-bottom: 1px solid #050505;
+        }
+
+        /* Texto de apoyo opcional (como en Cerisola) */
+        .footer-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        /* Ajustes para móviles */
+        @media (max-width: 768px) {
+            .interface {
+                padding: 30px;
+            }
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: right;
+            }
+            h1 {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <h1>Natasha Cano</h1>
-        
-        <nav>
-            <a href="obras.html" class="link">1- Obras</a>
-            <a href="biografia.html" class="link">2- Biografía</a>
-            <a href="contacto.html" class="link">3- Contacto</a>
-        </nav>
+    <div class="background-image"></div>
+    <div class="overlay"></div>
+
+    <div class="interface">
+        <header style="display: flex; justify-content: space-between; align-items: baseline;">
+            <h1>Natasha Cano</h1>
+            
+            <nav>
+                <a href="obras.html" class="link">Obras</a>
+                <a href="biografia.html" class="link">Statement</a>
+                <a href="contacto.html" class="link">Contacto</a>
+            </nav>
+        </header>
+
+        <div class="footer-tag">
+            Artista Visual
+        </div>
     </div>
 
 </body>
